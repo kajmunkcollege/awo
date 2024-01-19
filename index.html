@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>O.A.K.</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta property="og:image" content="images/oak-thumbnail.png" />
+  <meta property="og:title" content="Online Awnsers Kajmunk" />
+  <meta property="og:image" content="images/oak-thumbnail.png" />
+  <meta property="og:url" content="https://awo.kajmunk.repl.co/" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="882" />
+  <link rel="icon" type="image/x-icon" href="images/oak-icon (1).png">
+</head>
+
+<div class="topnav">
+  <input type="text" id="zoekInput" placeholder="Zoeken..." onkeydown="if (event.keyCode === 13) zoek()"><a
+    href="info.html" draggable="false">
+    <img src="images/oak-icon (1).png" class="nav-logo" draggable="false" style="width:42px;height:42px;">
+  </a>
+
+</div>
+
+<br class="10">
+<br class="10">
+<br class="10">
+
+<div class="strike">
+  <span>2 Havo/Vwo</span>
+</div>
+
+<div class="container">
+  <h4 class="name">Nieuw Nederlands 6, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/Nieuw_Nederlands_6_Havo-Vwo.pdf')">Download</button><button class="show-modal"
+    type="submit">Toets</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">Getal en Ruimte deel 1, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/Getal_en_Ruimte_deel_1_Havo-Vwo.pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+
+<div class="container">
+  <h4 class="name">Getal en Ruimte deel 2, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/2havo(vwo)-uitwerkingen-deel2 (1).pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">NaSk H1, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/2hv-hfd1-uitwerkingen.pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">NaSk H4, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/overal_nask_1-2_hv_h04_uitwerkingen.pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">NaSk H7, 2Havo/Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/overal_nask_1-2_hv_h07_uitwerkingen.pdf')">Download</button>
+</div>
+
+<div class="strike">
+  <span>3 Vwo</span>
+</div>
+
+<div class="container">
+  <h4 class="name">De GEO 9 H1, 3Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/Geo9_3vwo_h1_antwoorden (1).pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">De GEO 9 H3, 3Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/Geo9_3vwo_h3_antwoorden.pdf')">Download</button>
+</div>
+
+<div class="strike2"><span></span></div>
+
+<div class="container">
+  <h4 class="name">Nieuw Nederlands 6, 3Vwo</h4><button class="download" type="submit"
+    onclick="window.open('antwoorden/nn6-3vwo-antwoorden.pdf')">Download</button>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section>
+  <span class="overlay"></span>
+  <div class="modal-box">
+    <i class="fa-regular fa-circle-check"></i>
+    <h2>Toetsen Downloaden</h2>
+    <h4>Wilt u de aankoop voortzetten? Dit zal u omleiden naar onze betaal website.</h4><br>
+    <h3 class="infobuy">Wat u Koopt: </h3>
+    <h3 class="infobuy">Nieuw Nederlands Toets Hoofdstuk 1t/m7 DIT ZIJN ALLEEN DE VRAGEN!</h3>
+    <h6 class="infobuy">(De antwoorden van deze toets zijn niet inbegrepen)</h6>
+    <div class="buttons">
+      <button class="close-btn" id="Close">Annuleren</button>
+      <button class="buy" onclick="window.open('https://shattereddisk.github.io/rickroll/rickroll.mp4')">€3,99</button>
+    </div>
+  </div>
+</section>
+<script>
+  const section = document.querySelector("section"),
+    overlay = document.querySelector(".overlay"),
+    showBtn = document.querySelector(".show-modal"),
+    closeBtn = document.querySelector(".close-btn");
+  showBtn.addEventListener("click", () => section.classList.add("active"));
+  overlay.addEventListener("click", () =>
+    section.classList.remove("active")
+  );
+  closeBtn.addEventListener("click", () =>
+    section.classList.remove("active")
+  );
+</script>
+
+  <p id="counter">Bezoekers: Laden...</p>
+
+  <script>
+      // Functie om de tellerwaarde op te halen en weer te geven
+      function getCounter() {
+          // Roep de server-side PHP aan om de tellerwaarde op te halen
+          fetch('counter.php')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById('counter').innerHTML = `Bezoekers: ${data}`;
+              })
+              .catch(error => console.error('Fout bij het ophalen van de tellerwaarde:', error));
+      }
+
+      // Roep de functie aan wanneer de pagina laadt
+      window.onload = getCounter;
+  </script>
+
+<body>
+  <script src="script.js"></script>
+</body>
+
+</html>
